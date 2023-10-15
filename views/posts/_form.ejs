@@ -1,0 +1,16 @@
+<div>
+    <h1>Title:</h1>
+    <input type="text" name="title" id="title" value="<%=post.title%>" required="required">
+</div>
+<div>
+    <b>Body:</b>
+    <textarea name="body" id="body" cols="30" rows="10" required="required"><%=post.body%></textarea>
+</div>
+<div>
+    <b>Attach File:</b>
+    <input type="file" name="image" id="image">
+</div>
+
+<input type="submit" value="Save" name="enviar" id="enviar" >
+
+<a href="/posts" class="button">Cancel</a>

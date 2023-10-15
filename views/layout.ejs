@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div>
+    <% if (!locals.loginUser){ %>
+
+      <a href="/login">Login</a>
+      <% }else { %>
+        <a href="/users/<%=locals.loginUser.id %>">
+          <%=locals.loginUser.username%>
+        </a>
+        <a href="/login?_method=DELETE">Logout</a>
+        <% } %>
+  </div>
+  <header class="main" id="mainHeader">Mi blog</header>
+  <nav><button href="localhost:3000/author">Autor</button></nav>
+  <nav><a href="/posts">Posts</a></nav>
+  <nav>
+    <% if (locals.loginUser && locals.loginUser.isAdmin ) { %>
+      <a href="/users">Users</a>
+      <% } %>
+  </nav>
+  <%- body %>
+    <footer></footer>
+</body>
+
+</html>

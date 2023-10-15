@@ -1,0 +1,27 @@
+<section>
+
+  <h1>Welcome to My Blog</h1>
+  <% for (let post of posts){%>
+    <article class="postShow">
+
+      
+        <%= post.title%>
+          <div>
+            <a href="/posts/<%=post.id%>" class="button">Show</a>
+            <% if (locals.loginUser && (locals.loginUser.isAdmin || locals.loginUser===post.author)) { %>
+              <a href="/posts/<%=post.id%>/edit" class="button">Edit</a>
+              <a href="/posts/<%=post.id%>?_method=DELETE" class="button">Delete</a>
+              <% } %>
+                <% if (post.author) {%>
+                  <b id="author" class="author">by <%= post.author.username %></b>
+                  <% } else {%>
+                    <b id="author" class="author">by Anonymous</b>
+                    <% } %>
+<%- include ('../attachments/attachment.ejs', {post}) %>
+          </div>
+    </article>
+    <% }%>
+      <% if (locals.loginUser) { %>
+        <a class="button" href="/posts/new">Create new post</a>
+        <% } %>
+</section>

@@ -1,0 +1,57 @@
+<script>
+    function forcePassword() {
+        var pw1 = document.getElementById('user_password').value;
+        var pw2 = document.getElementById('user_confirm_password').value;
+
+        if (!pw1 || !pw2) {
+            console.log("Falta una pass");
+            return false;
+        }
+        return true;
+    }
+
+    function validPassword() {
+        var pw1 = document.getElementById('user_password').value;
+        var pw2 = document.getElementById('user_confirm_password').value;
+
+        if (pw1 !== pw2) {
+            console.log("Contraseñas no coinciden");
+            return false;
+        }
+
+        if (pw1.lenght < 8 && pw2.lenght < 8) {
+            console.log("Contraseña muy corta");
+            return false;
+        }
+        return true;
+
+    }
+</script>
+
+<ul>
+    <li>
+      
+            <label for="username" class="username">Username:</label>
+            <input type="text" id="username" name="username" value="<%= user.username %>">
+           
+    </li>
+    <li>
+   
+            <label for="email" class="email">Email:</label>
+            <input type="text" id="email" name="email" value="<%= user.email %>">
+       
+    </li>
+    <li>
+        <span>Introduce la nueva contraseña</span>
+        <ul>
+            <li>
+                <label for="user_password" class="user_password">Password:</label>
+                <input type="password" id="user_password" name="password">
+            </li>
+            <li>
+                <label for="user_confirm_password" class="user_confirm_password">Password:</label>
+                <input type="password" id="user_confirm_password">
+            </li>
+        </ul>
+    </li>
+</ul>

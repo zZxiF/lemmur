@@ -1,0 +1,9 @@
+<section>
+    <title>
+        <h1>New user:</h1>
+    </title>
+    <form method="post" action="/users/">
+        <%-include ('_form.ejs') %>
+       <input type="submit" value="Save" onclick="return forcePassword() && validPassword()">
+    </form>
+</section>

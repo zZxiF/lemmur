@@ -1,0 +1,28 @@
+
+
+
+<h1>Users</h1>
+<table>
+  <% for (var user in users) { %> 
+    <tr>
+     <td>
+       <a href="/users/<%=user.id%>"><%= user.username %></a>
+       <!-- <% user.isAdmin ? "(admin)": "" %>  -->
+     </td> 
+     <td>
+      <% if (locals.loginUser && (locals.loginUser.isAdmin || locals.loginUser.id===user.id)) { %>
+        <a href="/users/<%= users[user].id %>/edit " class="button">Edit</a>     
+          <a href="/users/<%= users[user].id %>?_method=DELETE" class="button">Delete</a>
+        <% } %> 
+      
+     </td>
+     <td>
+     
+     </td>
+    </tr>
+    <% } %> 
+</table>
+
+<% if (locals.loginUser.isAdmin) { %>
+  <a href="/users/new" class="button">New User</a>
+  <% } %> 

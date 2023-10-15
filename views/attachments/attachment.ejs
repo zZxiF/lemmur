@@ -1,0 +1,12 @@
+<% var attachment = post.attachment;%>
+
+    <% if (attachment) {%>
+
+        <%if (attachment.mime==="image/jpeg" || attachment.mime==="image/jpg" || attachment.mime==="image/gif" ||
+            attachment.mime==="image/jpeg" ) {%>
+            <img class="attachment" src="/posts/<%=post.id%>/attachment" alt="Image" >
+            <%}%>
+
+            <% } else {%>
+                <img src="/images/none.png" width="100px">
+                <%}%>
